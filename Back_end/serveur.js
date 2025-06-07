@@ -89,6 +89,21 @@ app.use(session({
   }
 }));
 
+// Route d'accueil (à placer avant app.use(404))
+app.get("/", (req, res) => {
+  res.json({
+    message: "API Kankadi Internationale",
+    status: "En ligne ✅",
+    endpoints: {
+      auth: "/api/auth",
+      élèves: "/api/eleves",
+      enseignants: "/api/enseignants",
+      emploiDuTemps: "/api/emploi",
+      paiements: "/api/paiements",
+    },
+  });
+});
+
 // Routes API
 app.use('/api/auth', routesAuth);
 app.use('/api/eleves', routesEleve);
