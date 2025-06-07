@@ -3,8 +3,7 @@ const Enseignant = require("../models/Enseignant");
 const Matiere = require('../models/Matiere');
 const Utilisateur = require('../models/Utilisateur');
 // Dans votre fichier de contrôleur (enseignantController.js)
-const bcrypt = require('bcrypt');
-
+const bcrypt = require('bcryptjs');
 // Fonction pour générer un mot de passe aléatoire
 const genererMotDePasse = () => {
   const longueur = 10;
