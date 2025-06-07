@@ -61,17 +61,13 @@ app.use(cors({
 }));
 
 // Connexion MongoDB avec gestion d'erreur améliorée
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  retryWrites: true,
-  w: 'majority'
-})
-.then(() => console.log("✅ Connecté à MongoDB Atlas avec succès"))
-.catch(err => {
-  console.error("❌ Échec de connexion à MongoDB:", err.message);
-  process.exit(1);
-});
+// Nouvelle version simplifiée
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ Connecté à MongoDB Atlas avec succès"))
+  .catch(err => {
+    console.error("❌ Erreur de connexion:", err.message);
+    process.exit(1);
+  });
 
 // Configuration des sessions avec options de production
 app.use(session({
