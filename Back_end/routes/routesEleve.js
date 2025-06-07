@@ -3,7 +3,6 @@ const router = express.Router();
 const verifierToken = require('../middleware/verifierToken'); // Import du middleware verifierToken
 const verifierRole = require('../middleware/verifierRole') ;// Import du middleware verifierRole  
 const controleurEleve = require('../controllers/controleurEleve'); 
-const bcrypt = require('bcrypt');
 
 // Appliquer le middleware verifierToken avant verifierRole
 router.post('/ajout', verifierToken, verifierRole(['admin']), controleurEleve.ajouterEleve);
